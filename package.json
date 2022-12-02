@@ -1,0 +1,15 @@
+{
+  "name": "trash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/trash.js"
+  },
+  "keywords": [],
+  "author": "LiasCode",
+  "license": "ISC",
+  "dependencies": {
+    "mv": "^2.1.1"
+  }
+}
