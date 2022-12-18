@@ -9,19 +9,19 @@ const { resolveDirPaths } = require("./libs/resolveDirPaths");
 
 const PAPELERA_DIR = createTrashDir();
 
-// OPTIONS
+// #### OPTIONS
 // Help
 if (process.argv.length < 3 || process.argv.includes("--help")) {
   console.log(" YOU CAN USE : ");
   console.log(" --clean");
   console.log(" --list");
+  console.log(" --trash-path");
   console.log(" trash [...any nth of arguments of files and dirs names]");
   process.exit(0);
 }
 // Clean Trash folder
 else if (process.argv.includes("--clean")) {
   console.log('CLEANING "!!! TRASH !!!"');
-  console.log({ PAPELERA_DIR });
   const files = fs.readdirSync(PAPELERA_DIR);
 
   files.forEach((file) => {
@@ -34,13 +34,20 @@ else if (process.argv.includes("--clean")) {
 // List Files
 else if (process.argv.includes("--list")) {
   const files = fs.readdirSync(PAPELERA_DIR);
-  console.log({ PAPELERA_DIR });
-  console.log({ files });
+  if (!files.length) {
+    console.log("is empty");
+  }
+  else {
+    console.log(...files);
+  }
+  process.exit(0);
+} else if (process.argv.includes("--trash-path")) {
+  console.log(PAPELERA_DIR);
   process.exit(0);
 }
 // Move Files and Dirs
 else {
   const args = resolveDirPaths();
   moveDirectories(args, PAPELERA_DIR);
+  process.exit(0);
 }
-

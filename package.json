@@ -1,15 +1,19 @@
 {
   "name": "trash",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Use the rm command but this time safely using a trash",
+  "main": "/src/trash.js",
   "scripts": {
-    "start": "node ./src/trash.js"
+    "start": "node ./src/trash.js",
+    "build": "pkg ./src/trash.js  --out-path ./bin/ "
   },
-  "keywords": [],
+  "keywords": ["rm" , "trash", "safe", "remove", "command", "terminal"],
   "author": "LiasCode",
   "license": "ISC",
   "dependencies": {
     "mv": "^2.1.1"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.0"
   }
 }
